@@ -3,9 +3,13 @@ require('dotenv').config();
 const { graphqlHTTP } = require('express-graphql');
 //const { buildSchema } = require('graphql');
 const schema = require('./Schema/schema.js');
+const colors = require('colors');
+const connectDB = require('./config/db.js')
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+//MONGODB connection
+connectDB();
 
 //app.use -sect
 app.use('/graphql', graphqlHTTP({
